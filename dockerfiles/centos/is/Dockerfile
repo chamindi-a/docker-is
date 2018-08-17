@@ -39,14 +39,7 @@ ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}-${WSO2_SERVER_VERSION}
 RUN yum check-update && \
     yum install --downloadonly \
     nc && \
-    rm -rf /var/cache/yum/* && \
-    >> /etc/bash.bashrc \
-    ; echo "\
-    Welcome to WSO2 Docker resources.\n\
-    The Docker container contains the WSO2 product with its latest updates, which are under the End User License Agreement (EULA) 2.0.\n\
-    \n\
-    Read more about EULA 2.0 (https://wso2.com/licenses/wso2-update/2.0).\n"\
-    > /etc/motd
+    rm -rf /var/cache/yum/* 
 
 # create a user group and a user
 RUN groupadd --system -g ${USER_GROUP_ID} ${USER_GROUP} && \
